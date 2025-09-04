@@ -6,7 +6,7 @@ import pickle
 
 
 @st.cache_data(show_spinner=False)
-def load_data(csv_path="modified_manufacturing_dataset.csv"):
+def load_data(csv_path="./modified_manufacturing_dataset.csv"):    
     """
     CSV 파일을 불러오고, 캐싱하여 반환.
     """

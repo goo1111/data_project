@@ -3,16 +3,21 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-
 @st.cache_data(show_spinner=False)
 def load_data(csv_path="modified_manufacturing_dataset.csv"):
     """
     CSV 파일을 불러온 뒤 'Date' 컬럼을 datetime 타입으로 파싱합니다.
     'st.cache_data' 데코레이터로 감싸 데이터 재로드를 방지(캐싱)합니다.
     """
-    df = pd.read_csv(csv_path, parse_dates=["Date"])
-    return df
-
+    try:
+        df = pd.read_csv(csv_path, parse_dates=["Date"])
+        return df
+    except FileNotFoundError:
+        st.error(f"CSV 파일 '{csv_path}'를 찾을 수 없습니다.")
+        return pd.DataFrame()
+    except Exception as e:
+        st.error(f"파일을 읽는 중 오류가 발생했습니다: {e}")
+        return pd.DataFrame()
 
 ### Main 공간 ###
 

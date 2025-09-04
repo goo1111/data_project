@@ -4,27 +4,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 @st.cache_data(show_spinner=False)
-def load_data():
-    import os
-    
-    # 현재 위치와 파일 목록 확인
-    st.write("현재 작업 디렉토리:", os.getcwd())
-    st.write("현재 디렉토리 파일들:", os.listdir('.'))
-    
-    # 상위 디렉토리도 확인
-    try:
-        st.write("상위 디렉토리 파일들:", os.listdir('..'))
-    except:
-        pass
-    
-    # 전체 프로젝트 구조 확인
-    try:
-        st.write("/mount/src/data_project 내용:", os.listdir('/mount/src/data_project'))
-        st.write("/mount/src/data_project/streamlit 내용:", os.listdir('/mount/src/data_project/streamlit'))
-    except:
-        pass
-    
-    return pd.DataFrame()
+def load_data(csv_path="streamlit/modified_manufacturing_dataset.csv"):
+    """
+    CSV 파일을 불러온 뒤 'Date' 컬럼을 datetime 타입으로 파싱합니다.
+    'st.cache_data' 데코레이터로 감싸 데이터 재로드를 방지(캐싱)합니다.
+    """
+    df = pd.read_csv(csv_path, parse_dates=["Date"])
+    return df
     
 ### Main 공간 ###
 

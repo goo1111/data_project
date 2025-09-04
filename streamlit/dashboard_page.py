@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 @st.cache_data(show_spinner=False)
-def load_data(csv_path="modified_manufacturing_dataset.csv"):
+def load_data(csv_path="./modified_manufacturing_dataset.csv"):
     """
     CSV 파일을 불러온 뒤 'Date' 컬럼을 datetime 타입으로 파싱합니다.
     'st.cache_data' 데코레이터로 감싸 데이터 재로드를 방지(캐싱)합니다.

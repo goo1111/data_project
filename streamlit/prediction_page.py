@@ -4,15 +4,13 @@ import numpy as np
 import plotly.express as px
 import pickle
 
-
 @st.cache_data(show_spinner=False)
-def load_data(csv_path="./modified_manufacturing_dataset.csv"):    
+def load_data(csv_path="streamlit/modified_manufacturing_dataset.csv"):
     """
-    CSV 파일을 불러오고, 캐싱하여 반환.
+    CSV 파일을 불러옵니다.
     """
     df = pd.read_csv(csv_path)
     return df
-
 
 @st.cache_data(show_spinner=False)
 def load_model(model_path="rf_top4_model.pkl"):

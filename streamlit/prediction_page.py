@@ -13,7 +13,7 @@ def load_data(csv_path="streamlit/modified_manufacturing_dataset.csv"):
     return df
 
 @st.cache_data(show_spinner=False)
-def load_model(model_path="rf_top4_model.pkl"):
+def load_model(model_path="streamlit/rf_top4_model.pkl"):
     """
     pickle 형태로 저장된 학습 모델을 불러와 캐싱합니다.
     """

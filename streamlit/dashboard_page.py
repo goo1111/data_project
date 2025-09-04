@@ -16,7 +16,7 @@ def load_data(csv_path="modified_manufacturing_dataset.csv"):
 
 ### Main 공간 ###
 
-st.image("img.webp")
+# st.image("img.webp")
 
 df = load_data()
 
